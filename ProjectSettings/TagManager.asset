@@ -5,11 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Recy
+  - GameManager
+  - Bird
+  - GameOverScreen
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bird
   - Water
   - UI
   - 

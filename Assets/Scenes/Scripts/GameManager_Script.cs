@@ -1,31 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager_Script : MonoBehaviour
 {
 
-    
+    private int playerScore;
 
+    [SerializeField]
+    private TextMeshProUGUI score;
 
-    private void Awake()
+    [SerializeField]
+    private GameObject gameOverScreen;
+
+    public void addScore(int scoreToAdd)
     {
-        
+        playerScore += scoreToAdd;
+        score.text = playerScore.ToString();
+    }
+
+    public void restartGame()
+    {
+        gameOverScreen.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void gameOver()
+    {
+        gameOverScreen.SetActive(true);
     }
 
 
-
-    void Start()
+    private void Start()
     {
- 
-    }
-
-    
-
-
-
-    void Update()
-    {
-        
+        gameOverScreen.SetActive(false);
     }
 }
