@@ -1,17 +1,26 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class Bird_Script : MonoBehaviour
 {
-    [SerializeField]
-    private Rigidbody2D birdRigidBody;
+    [SerializeField] private Rigidbody2D birdRigidBody;
+    [SerializeField] private InputAction flap;
 
     private GameManager_Script gameManager;
-
 
     private bool birdIsAlive = true;
     private float flapStrength = 5;
 
-    
+
+    private void OnEnable() // Neccessary for new Input System
+    {
+        flap.Enable();
+    }
+    private void OnDisable() // Neccessary for new Input System
+    {
+        flap.Disable();
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -23,18 +32,21 @@ public class Bird_Script : MonoBehaviour
 
     void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager")
+        gameManager = GameObject.FindGameObjectWithTag("GameManager") 
             .GetComponent<GameManager_Script>();
     }
 
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive) // old input system maybe change to new one
+        // new Input System
+        if (birdIsAlive && flap.triggered)
         {
-            birdRigidBody.velocity = Vector2.up * flapStrength; // Vector2.up is a shortcut for Vector(0,1)
+            birdRigidBody.velocity = flap.ReadValue<Vector2>() * flapStrength;
         }
 
-        if (transform.position.y < -5 || transform.position.y > 5) // game over when bird leaves screen
+        // game over when bird leaves screen
+        if (transform.position.y < -5 || transform.position.y > 5) 
         {
             gameManager.gameOver();
             birdIsAlive = false;

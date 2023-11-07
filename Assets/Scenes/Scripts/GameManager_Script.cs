@@ -2,16 +2,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager_Script : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI score;
+    [SerializeField] private GameObject gameOverScreen;
 
     private int playerScore;
 
-    [SerializeField]
-    private TextMeshProUGUI score;
-
-    [SerializeField]
-    private GameObject gameOverScreen;
 
     public void addScore(int scoreToAdd)
     {
@@ -19,11 +17,13 @@ public class GameManager_Script : MonoBehaviour
         score.text = playerScore.ToString();
     }
 
+
     public void restartGame()
     {
         gameOverScreen.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
 
     public void gameOver()
     {

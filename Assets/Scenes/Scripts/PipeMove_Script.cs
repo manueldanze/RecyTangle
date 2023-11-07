@@ -1,11 +1,10 @@
 using UnityEngine;
 
+
 public class PipeMove_Script : MonoBehaviour
 {
-
     private float moveSpeed = 2;
     private float deadZone = -11;
-
 
 
     void Update()
@@ -14,7 +13,6 @@ public class PipeMove_Script : MonoBehaviour
 
         if (transform.position.x < deadZone)
         {
-            Debug.Log("Pipe deleted");
             Destroy(gameObject);
         }
 

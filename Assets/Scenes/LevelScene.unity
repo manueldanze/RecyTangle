@@ -1218,6 +1218,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birdRigidBody: {fileID: 1666919832}
+  flap:
+    m_Name: Flap
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8dd84a1f-c7b4-4f78-85a9-94d0c91d6044
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 8a83f4a9-ff1c-4693-9daf-3235ff3fe0da
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Flap
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 3037365e-53d9-47d1-9e9c-13e272b9c41c
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Flap
+      m_Flags: 8
+    - m_Name: down
+      m_Id: a7c52360-6d29-418e-b584-151b9fa51fa1
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Flap
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 61f9ae08-3569-4870-9b27-206942716f65
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Flap
+      m_Flags: 8
+    - m_Name: right
+      m_Id: cd154746-df78-4368-86cc-fdbc590d2599
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Flap
+      m_Flags: 8
+    m_Flags: 0
 --- !u!1 &1784312131
 GameObject:
   m_ObjectHideFlags: 0

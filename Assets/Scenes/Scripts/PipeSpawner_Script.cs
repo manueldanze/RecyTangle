@@ -1,9 +1,9 @@
 using UnityEngine;
 
+
 public class PipeSpawner_Script : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject pipe;
+    [SerializeField] private GameObject pipe;
     
     private float timer = 0;
     private float spawnRate = 2;
@@ -11,12 +11,12 @@ public class PipeSpawner_Script : MonoBehaviour
     private float maxSpawnXOffset = 2;
 
 
-    // object to spawn, position spawner, rotation of spawner
     private void spawnPipe()
     {
         float lowestPoint = transform.position.y - maxSpawnYOffset;
         float highestPoint = transform.position.y + maxSpawnYOffset;
 
+        // Instantiate(object to spawn, spawn position, spawn rotation)
         Instantiate(pipe, new Vector3(transform.position.x + (Random.Range(0, maxSpawnXOffset))
             ,Random.Range(lowestPoint,highestPoint),0), transform.rotation); 
     }
@@ -26,6 +26,7 @@ public class PipeSpawner_Script : MonoBehaviour
     {
         spawnPipe(); // for faster game start
     }
+
 
     void Update()
     {
@@ -38,7 +39,5 @@ public class PipeSpawner_Script : MonoBehaviour
             spawnPipe();
             timer = 0;
         }
-
-        
     }
 }
